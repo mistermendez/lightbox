@@ -21,6 +21,7 @@
       padding:8px 10px;
       font-size:14px;
       font-weight:200;
+      white-space: nowrap;
 
       &:hover, &:active, &:focus {
         background-color: $brand-highlight;

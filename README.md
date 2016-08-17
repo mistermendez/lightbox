@@ -1,6 +1,6 @@
-# Lightbox Assignment
+# Lightbox
 
-A web app that displays Flickr photo grid with lightbox view. Implemented with vanilla JavaScript.
+A web app that displays Flickr photo grid with lightbox view. Implemented in vanilla JavaScript. Lightbox navigation supports left/right keyboard arrows and ESC key.
 
 ![App screen shot](https://github.com/mistermendez/lightbox/raw/master/src/assets/images/lb-ss.png)
 
@@ -10,7 +10,7 @@ A web app that displays Flickr photo grid with lightbox view. Implemented with v
 
 ## Install
 
-1. Install [brew](http://brew.sh/): `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+1. Install [brew](http://brew.sh/): `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
 2. Install git and node: `brew install git node`
 
@@ -22,4 +22,4 @@ A web app that displays Flickr photo grid with lightbox view. Implemented with v
 
 6. Build the project by running `gulp`
 
-7. Open in `/dist/index.html` browser.
+7. Open `/dist/index.html` in browser.
