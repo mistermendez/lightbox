@@ -2,7 +2,7 @@
 
 A web app that displays Flickr photo grid with lightbox view. Implemented with vanilla JavaScript.
 
-![App screen shot](src/assests/images/lb-ss.png?raw=true)
+![App screen shot](https://github.com/mistermendez/lightbox/raw/master/src/assets/images/lb-ss.png)
 
 ## Live demo
 
