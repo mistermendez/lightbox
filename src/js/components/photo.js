@@ -1,26 +1,45 @@
+import Utils from './utils'
+
 class Photo {
-  constructor(item) {
+  constructor(item, index, clickAction) {
     this.item = item;
-    this.handleOnClick = this.handleOnClick.bind(this);
+    this.index = index;
+    this.clickAction = clickAction;
+    this.handleClickAction = this.handleClickAction.bind(this);
   }
 
-  handleOnClick (event) {
+  handleClickAction (event) {
     event.preventDefault();
-    console.log("photo: ", this.item.title);
+    this.clickAction(this.item, this.index);
   }
 
   render() {
-    let img = document.createElement('img');
-    img.src = 'https://c2.staticflickr.com/' + this.item.farm + '/' + this.item.server + '/' + this.item.id + '_' + this.item.secret + '_m.jpg';
+    // photo thumbnail image
+    let thumbnailSrc = Utils.CONSTANTS.IMG_HOST + this.item.farm + '/' + this.item.server + '/' + this.item.id + '_' + this.item.secret + '_m.jpg';
 
+    // overlay
+    let overlay = document.createElement('span');
+    overlay.className = "overlay";
+
+    // photo title
+    let title = document.createElement('span');
+    title.className = "title";
+    title.innerText = this.item.title;
+
+    // photo
     let photo = document.createElement('a');
-    photo.className = "photo";
-    photo.innerText = this.item.title;
-    photo.onclick = this.handleOnClick;
-    photo.appendChild(img);
+    photo.className = "photo-thumbnail";
+    photo.onclick = this.handleClickAction;
+    photo.style.backgroundImage = "url('" + thumbnailSrc + "')";
+    photo.appendChild(overlay);
+    photo.appendChild(title);
+
+    // li
+    let li = document.createElement('li');
+    li.appendChild(photo);
 
     return (
-      photo
+      li
     );
   }
 }

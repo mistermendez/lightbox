@@ -1,21 +1,26 @@
 import Photo from './photo'
 import Utils from './utils'
+import LightBox from './lightbox'
 
 class PhotoGrid {
   constructor() {
-    this.photoGrid = document.createElement('div');
+    this.photoGrid = document.createElement('ul');
     this.photoGrid.className = "photo-grid";
     this.photoGrid.id = "photo-grid";
 
-    let url = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=4e4e0d1c667cb6e65d3af06d88cebe6d&photoset_id=72157619882835617&format=json&nojsoncallback=1';
-    Utils.xhr(url, this.render.bind(this));
+    let uri = Utils.CONSTANTS.API_HOST + Utils.CONSTANTS.API_QUERY_STRING + Utils.CONSTANTS.PHOTO_SET[3];
+    Utils.xhr(uri, this.render.bind(this));
   }
 
   render(data) {
     if(data) {
       let body = JSON.parse(data);
-      body.photoset.photo.forEach(function (item) {
-        let photo = new Photo(item);
+      let photoset = body.photoset.photo;
+      this.lightBox = new LightBox(photoset);
+      let clickAction = this.lightBox.render.bind(this.lightBox);
+
+      photoset.forEach(function (item, index) {
+        let photo = new Photo(item, index, clickAction);
         this.photoGrid.appendChild(photo.render());
       }.bind(this));
     }

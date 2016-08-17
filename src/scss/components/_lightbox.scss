@@ -1,0 +1,100 @@
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  z-index: $zindex-lightbox;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  opacity: $opacity-fade-in;
+
+  .photo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+
+    .caption {
+      color: #FFF;
+      padding: 10px 0 0 4px;
+    }
+  }
+
+  .btn {
+    position: absolute;
+    z-index: $zindex-lightbox-btns;
+    color: #FFF;
+    font-size: 50px;
+    line-height: 1;
+    opacity: 0.4;
+
+    // increase selectable area, helps with mobile
+    &:before {
+      position: absolute;
+      content: '';
+      right: $spacer;
+      left: $spacer;
+      top: $spacer;
+      bottom: $spacer;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      opacity: 1;
+      transition: all $transition-fade-in;
+    }
+  }
+
+  .close-btn {
+    @extend .btn;
+    top: 0;
+    right: 16px;
+  }
+
+  .next-btn {
+    @extend .btn;
+    transform: translateY(-60%);
+    top: 50%;
+    right: 2%;
+  }
+
+  .prev-btn {
+    @extend .btn;
+    transform: translateY(-60%);
+    top: 50%;
+    left: 2%;
+  }
+}
+
+#photo {
+  opacity:$opacity-fade-in;
+}
+
+div#lightbox.lightbox, img#photo.photo {
+  -webkit-animation: fade $transition-fade-in;
+  animation: fade $transition-fade-in;
+  opacity: 1;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: $opacity-fade-in
+  }
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: $opacity-fade-in
+  }
+  to {
+    opacity: 1
+  }
+}

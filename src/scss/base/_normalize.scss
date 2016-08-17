@@ -32,6 +32,7 @@ html {
 
 body {
   margin: 0;
+  background-color: $body-color;
 }
 
 /**
@@ -111,6 +112,7 @@ pre {
 a {
   background-color: transparent; /* 1 */
   -webkit-text-decoration-skip: objects; /* 2 */
+  cursor: pointer;
 }
 
 /**

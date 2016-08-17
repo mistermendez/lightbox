@@ -1,19 +1,7 @@
 @charset "utf-8";
 
+@import "base/variables";
 @import "base/normalize";
-
-.photo {
-  border: 1px solid #000066;
-  padding: 20px;
-  width: (100%/3);
-  float: left;
-  cursor: pointer;
-
-  &:first-child {
-    border-right: 0;
-  }
-
-  &:last-child {
-    border-left: 0;
-  }
-}
+@import "components/photo-grid";
+@import "components/lightbox";
+@import "base/responsive";

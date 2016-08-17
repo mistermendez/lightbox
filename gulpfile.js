@@ -2,9 +2,9 @@ var gulp = require('gulp'),
   sass = require('gulp-sass'),
   browserify = require('browserify'),
   babelify = require('babelify'),
-  source      = require('vinyl-source-stream'),
-  buffer      = require('vinyl-buffer'),
-  rename      = require('gulp-rename'),
+  source = require('vinyl-source-stream'),
+  buffer = require('vinyl-buffer'),
+  rename = require('gulp-rename'),
   sourcemaps = require('gulp-sourcemaps');
 
 var config = {
