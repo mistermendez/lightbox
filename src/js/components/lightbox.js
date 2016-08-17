@@ -86,6 +86,9 @@ class LightBox {
       case 37:
         this.handlePrev(event);
         break;
+      case 27:
+        this.handleClose(event);
+        break;
     }
   }
 
