@@ -11,6 +11,22 @@
     margin: 0;
     padding: 0;
 
+    &.header {
+      padding:0 14px;
+      text-align: center;
+      text-transform: lowercase;
+
+      .photoset-title {
+        font-size: 16px;
+      }
+
+      .owner-name {
+        font-size: 12px;
+        color:#7f7f7f;
+        margin-top:10px;
+      }
+    }
+
     .photo-thumbnail {
       margin: $photo-grid-gutter;
       display: block;
@@ -50,7 +66,7 @@
       left: 0;
       width: 100%;
       text-align: center;
-      text-transform: capitalize;
+      text-transform: lowercase;
       font-size: 14px;
       top: 40%;
       color: #FFF;

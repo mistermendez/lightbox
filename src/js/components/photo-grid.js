@@ -4,25 +4,56 @@ import LightBox from './lightbox'
 
 class PhotoGrid {
   constructor() {
+    this.title = document.createElement('div');
+    this.title.className = "photoset-title";
+    this.ownerName = document.createElement('div');
+    this.ownerName.className = "owner-name";
+
+    this.header = document.createElement('li');
+    this.header.className = "header";
+    this.header.appendChild(this.title);
+    this.header.appendChild(this.ownerName);
+
     this.photoGrid = document.createElement('ul');
     this.photoGrid.className = "photo-grid";
     this.photoGrid.id = "photo-grid";
+    this.photoGrid.appendChild(this.header);
 
-    let uri = Utils.CONSTANTS.API_HOST + Utils.CONSTANTS.API_QUERY_STRING + Utils.CONSTANTS.PHOTO_SET[3];
+    this.requestPhotos();
+  }
+
+  requestPhotos (photoSetId) {
+    let id = photoSetId ? photoSetId : 0;
+    let uri = Utils.CONSTANTS.API_HOST + Utils.CONSTANTS.API_QUERY_STRING + Utils.CONSTANTS.PHOTO_SET[id];
     Utils.xhr(uri, this.render.bind(this));
+  }
+
+  emptyPhotoGrid() {
+    while (this.photoGrid.childElementCount > 1) {
+      this.photoGrid.removeChild(this.photoGrid.lastChild);
+    }
   }
 
   render(data) {
     if(data) {
       let body = JSON.parse(data);
-      let photoset = body.photoset.photo;
-      this.lightBox = new LightBox(photoset);
-      let clickAction = this.lightBox.render.bind(this.lightBox);
+      let photoset = body.photoset;
 
-      photoset.forEach(function (item, index) {
-        let photo = new Photo(item, index, clickAction);
-        this.photoGrid.appendChild(photo.render());
-      }.bind(this));
+      if(photoset) {
+        this.title.innerText = "#" + photoset.title;
+        this.ownerName.innerText = "@" + photoset.ownername;
+
+        this.lightBox = new LightBox(photoset.photo);
+        let clickAction = this.lightBox.render.bind(this.lightBox);
+
+        // empty grid before adding new photoset
+        this.emptyPhotoGrid();
+
+        photoset.photo.forEach(function (item, index) {
+          let photo = new Photo(item, index, clickAction);
+          this.photoGrid.appendChild(photo.render());
+        }.bind(this));
+      }
     }
 
     return (
