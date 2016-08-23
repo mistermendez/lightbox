@@ -23,3 +23,5 @@ A web app that displays Flickr photo grid with lightbox view. Implemented in van
 6. Build the project by running `gulp`
 
 7. Open `/dist/index.html` in browser.
+
+8. Test by running `npm test`
