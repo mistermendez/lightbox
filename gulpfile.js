@@ -2,6 +2,7 @@ var gulp = require('gulp'),
   sass = require('gulp-sass'),
   browserify = require('browserify'),
   babelify = require('babelify'),
+  uglify = require('gulp-uglify'),
   source = require('vinyl-source-stream'),
   buffer = require('vinyl-buffer'),
   rename = require('gulp-rename'),
@@ -54,8 +55,9 @@ function bundle (bundler) {
     .bundle()
     .pipe(source(config.js.src))
     .pipe(buffer())
+    .pipe(sourcemaps.init())
+    .pipe(uglify())
     .pipe(rename(config.js.outputFile))
-    .pipe(sourcemaps.init({ loadMaps : true }))
     .pipe(sourcemaps.write(config.mapDir))
     .pipe(gulp.dest(config.outputDir));
 }
