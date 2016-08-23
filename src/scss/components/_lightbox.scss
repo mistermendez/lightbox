@@ -7,8 +7,6 @@
   height: 100%;
   z-index: $zindex-lightbox;
   user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
   opacity: $opacity-fade-in;
 
   .photo-container {

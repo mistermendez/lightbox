@@ -3,6 +3,8 @@ var gulp = require('gulp'),
   browserify = require('browserify'),
   babelify = require('babelify'),
   uglify = require('gulp-uglify'),
+  postcss = require('gulp-postcss'),
+  autoprefixer = require('autoprefixer'),
   source = require('vinyl-source-stream'),
   buffer = require('vinyl-buffer'),
   rename = require('gulp-rename'),
@@ -39,6 +41,7 @@ gulp.task('sass', function () {
       .on('error', sass.logError)
     )
     .pipe(rename({suffix: '.min'}))
+    .pipe(postcss([ autoprefixer({ browsers: ['last 3 versions'] }) ]))
     .pipe(sourcemaps.write(config.mapDir))
     .pipe(gulp.dest(config.outputDir))
 });
