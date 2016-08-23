@@ -28,7 +28,7 @@ gulp.task('default', ['browserify', 'sass', 'html']);
 // build minified js
 gulp.task('browserify', function () {
   var bundler = browserify(config.js.src)
-    .transform(babelify, {presets : [ 'es2015' ]});
+    .transform(babelify);
 
   bundle(bundler);
 });
