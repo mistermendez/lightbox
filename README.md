@@ -2,7 +2,7 @@
 
 A web app that displays Flickr photo grid with lightbox view. Implemented in vanilla JavaScript (ES2015). Lightbox navigation supports left/right keyboard arrows and ESC key.
 
-![App screen shot](https://github.com/mistermendez/lightbox/raw/master/src/assets/images/lb-ss.png)
+<img src="https://s3.amazonaws.com/light-box/lb-ss.png" width="600">
 
 ## Live demo
 
