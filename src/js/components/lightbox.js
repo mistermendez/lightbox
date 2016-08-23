@@ -47,7 +47,8 @@ class LightBox {
     this.lightBox.appendChild(this.prevBtn);
 
     // enable keyboard nav
-    document.addEventListener("keydown", this.handleKey.bind(this));
+    this.handleKey = this.handleKey.bind(this);
+    document.addEventListener("keydown", this.handleKey);
   }
 
   handleNext(event) {
@@ -75,7 +76,7 @@ class LightBox {
   handleClose(event) {
     event.preventDefault();
     document.body.removeChild(this.lightBox);
-    document.removeEventListener("keydown", this.handleKey.bind(this)); // disable keyboard nav
+    document.removeEventListener("keydown", this.handleKey); // disable keyboard nav
   }
 
   handleKey(event) {
