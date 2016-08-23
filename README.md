@@ -1,6 +1,6 @@
 # Lightbox
 
-A web app that displays Flickr photo grid with lightbox view. Implemented in vanilla JavaScript. Lightbox navigation supports left/right keyboard arrows and ESC key.
+A web app that displays Flickr photo grid with lightbox view. Implemented in vanilla JavaScript (ES2015). Lightbox navigation supports left/right keyboard arrows and ESC key.
 
 ![App screen shot](https://github.com/mistermendez/lightbox/raw/master/src/assets/images/lb-ss.png)
 
@@ -14,7 +14,7 @@ A web app that displays Flickr photo grid with lightbox view. Implemented in van
 
 2. Install git and node: `brew install git node`
 
-3. Install gulp globally by running: `npm install -g gulp`
+3. Install gulp-cli globally by running: `npm install --global gulp-cli`
 
 4. Clone project: `git clone https://github.com/mistermendez/lightbox.git`
 

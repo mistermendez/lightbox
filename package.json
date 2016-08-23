@@ -12,7 +12,11 @@
   },
   "keywords": [
     "lightbox",
-    "photos"
+    "flickr",
+    "photo",
+    "grid",
+    "ES6",
+    "ES2015"
   ],
   "author": "Jeoffrey Mendez",
   "license": "MIT",

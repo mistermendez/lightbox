@@ -9,8 +9,10 @@ class Menu {
 
   handleMenuAction(event) {
     event.preventDefault();
-    let photoSet = Utils.CONSTANTS.PHOTO_SET;
+    let photoSet = Utils.CONSTANTS.PHOTO_SET; // array of photoset ids
     this.menuAction(this.index);
+
+    // cycle photoset array
     this.index++;
     if(this.index == photoSet.length) {
       this.index = 0;
